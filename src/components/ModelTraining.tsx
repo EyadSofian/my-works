@@ -11,13 +11,11 @@ function ModelCard({ model, index }: { model: TrainedModel; index: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-10% 0px' }}
       transition={{ duration: 0.65, ease: EASE, delay: index * 0.08 }}
-      className="group glass relative overflow-hidden rounded-2xl p-6 transition-colors duration-300 hover:border-amber-400/60"
+      className="group glass relative rounded-2xl p-6 transition-colors duration-300 hover:border-amber-400/60"
     >
-      <span className="absolute inset-y-0 left-0 w-1 bg-accent-gradient" aria-hidden />
-
       <div className="flex items-start justify-between gap-3">
         <div>
-          <div className="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-haze-300">
+          <div className="font-mono text-[0.72rem] uppercase tracking-[0.2em] text-amber-500">
             Base model
           </div>
           <h3 className="mt-1 font-display text-2xl font-semibold text-mist-100">{model.base}</h3>
@@ -31,7 +29,7 @@ function ModelCard({ model, index }: { model: TrainedModel; index: number }) {
         <span className="rounded-full bg-accent-gradient px-2.5 py-1 text-xs font-semibold text-white">
           {model.technique}
         </span>
-        <span className="text-sm font-medium text-amber-400">{model.focus}</span>
+        <span className="text-sm font-medium text-amber-500">{model.focus}</span>
       </div>
 
       <p className="mt-4 text-sm leading-relaxed text-haze-300">{model.detail}</p>
@@ -40,7 +38,7 @@ function ModelCard({ model, index }: { model: TrainedModel; index: number }) {
         {model.tags.map((tag) => (
           <span
             key={tag}
-            className="rounded-full border border-glass-line px-2 py-0.5 font-mono text-[0.65rem] text-haze-300"
+            className="rounded-full border border-glass-line px-2 py-0.5 font-mono text-[0.72rem] text-haze-300"
           >
             {tag}
           </span>
@@ -82,7 +80,7 @@ export function ModelTraining() {
                 {step}
               </motion.span>
               {i < training.pipeline.length - 1 && (
-                <span aria-hidden className="font-mono text-amber-400">
+                <span aria-hidden className="font-mono text-amber-500">
                   →
                 </span>
               )}
@@ -106,7 +104,7 @@ export function ModelTraining() {
             {training.stack.map((s) => (
               <span
                 key={s}
-                className="rounded-full border border-glass-line px-2.5 py-1 font-mono text-[0.7rem] text-haze-300"
+                className="rounded-full border border-glass-line px-2.5 py-1 font-mono text-[0.72rem] text-haze-300"
               >
                 {s}
               </span>
@@ -117,7 +115,7 @@ export function ModelTraining() {
             target="_blank"
             rel="noopener noreferrer"
             data-cursor="grow"
-            className="link-underline inline-flex shrink-0 items-center gap-2 text-sm font-medium text-amber-400 transition-colors hover:text-mist-100"
+            className="link-underline inline-flex shrink-0 items-center gap-2 text-sm font-medium text-amber-500 transition-colors hover:text-mist-100"
           >
             Explore the training repo <span aria-hidden>→</span>
           </a>

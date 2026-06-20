@@ -21,11 +21,11 @@ function Role({ item }: { item: ExperienceItem }) {
 
       <div className="glass rounded-2xl p-5 transition-colors duration-300 hover:border-amber-400/50 sm:p-7">
         <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-          <span className="font-mono text-xs text-amber-400">{item.period}</span>
+          <span className="font-mono text-xs text-amber-500">{item.period}</span>
           <span className="text-glass-line">·</span>
           <span className="font-mono text-xs text-haze-300">{item.location}</span>
           {item.current && (
-            <span className="rounded-full bg-jade-400/15 px-2 py-0.5 text-[0.65rem] font-semibold uppercase tracking-wider text-jade-400">
+            <span className="rounded-full bg-jade-400/15 px-2 py-0.5 text-[0.72rem] font-semibold uppercase tracking-wider text-jade-400">
               Current
             </span>
           )}
@@ -50,7 +50,7 @@ function Role({ item }: { item: ExperienceItem }) {
           {item.tech.map((tech) => (
             <span
               key={tech}
-              className="rounded-full border border-glass-line px-2.5 py-1 font-mono text-[0.7rem] text-haze-300"
+              className="rounded-full border border-glass-line px-2.5 py-1 font-mono text-[0.72rem] text-haze-300"
             >
               {tech}
             </span>

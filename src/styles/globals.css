@@ -119,6 +119,7 @@
   .glass {
     background: var(--glass);
     border: 1px solid var(--glass-line);
+    box-shadow: var(--card-shadow);
     backdrop-filter: blur(14px) saturate(140%);
     -webkit-backdrop-filter: blur(14px) saturate(140%);
   }
@@ -128,7 +129,7 @@
     font-size: 0.72rem;
     letter-spacing: 0.28em;
     text-transform: uppercase;
-    color: var(--amber-400);
+    color: var(--amber-500);
   }
 
   .hairline {

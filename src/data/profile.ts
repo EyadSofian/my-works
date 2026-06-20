@@ -479,7 +479,7 @@ export interface UIStrings {
   scroll: string;
   close: string;
   visit: string;
-  builtWith: string;
+  rights: string;
   loading: string;
 }
 
@@ -496,7 +496,7 @@ export const ui: Record<Lang, UIStrings> = {
     scroll: 'Scroll',
     close: 'Close',
     visit: 'Visit',
-    builtWith: 'Built with React, Three.js & GSAP.',
+    rights: 'All rights reserved.',
     loading: 'Loading',
   },
   ar: {
@@ -511,7 +511,7 @@ export const ui: Record<Lang, UIStrings> = {
     scroll: 'مرّر',
     close: 'إغلاق',
     visit: 'زيارة',
-    builtWith: 'مبني بـ React وThree.js وGSAP.',
+    rights: 'جميع الحقوق محفوظة.',
     loading: 'تحميل',
   },
 } as const;

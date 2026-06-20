@@ -43,7 +43,7 @@ export function Skills() {
                 {lane.items.map((item, i) => (
                   <span
                     key={item}
-                    className="group cursor-default rounded-full border border-glass-line bg-ink-900/30 px-3 py-1.5 text-sm text-mist-100 transition-all duration-300 hover:-translate-y-0.5 hover:border-amber-400/70 hover:text-amber-400 hover:shadow-glow"
+                    className="group cursor-default rounded-full border border-glass-line bg-ink-900/30 px-3 py-1.5 text-sm text-mist-100 transition-all duration-300 hover:-translate-y-0.5 hover:border-amber-400/70 hover:text-amber-500 hover:shadow-glow"
                     data-cursor="grow"
                     style={
                       reduced

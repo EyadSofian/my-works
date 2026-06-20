@@ -18,7 +18,7 @@ export function Certifications() {
               transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1], delay: i * 0.06 }}
               className="glass flex flex-col items-center gap-1 rounded-2xl px-4 py-6 text-center"
             >
-              <span className="font-display text-base font-semibold text-amber-400">{c.issuer}</span>
+              <span className="font-display text-base font-semibold text-amber-500">{c.issuer}</span>
               <span className="text-sm text-haze-300">{c.name}</span>
             </motion.div>
           ))}

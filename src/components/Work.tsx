@@ -2,18 +2,11 @@ import { useRef, useState } from 'react';
 import { motion, useMotionValue, useSpring, useTransform, type MotionValue } from 'framer-motion';
 import { SectionHeading } from './SectionHeading';
 import { ProjectModal } from './ProjectModal';
+import { ProjectCover } from './ProjectCover';
 import { projects, githubProfile, type Project } from '../data/profile';
 import { useLang } from '../lib/i18n';
 import { useIsTouch } from '../lib/hooks';
 import { useReducedMotion } from '../lib/useReducedMotion';
-
-// On-brand cover gradients, cycled per card.
-const COVERS = [
-  'radial-gradient(120% 120% at 20% 10%, rgba(59,130,246,0.45), transparent 55%), linear-gradient(160deg, #16161A, #0A0A0C)',
-  'radial-gradient(120% 120% at 80% 10%, rgba(125,211,252,0.38), transparent 55%), linear-gradient(160deg, #16161A, #0A0A0C)',
-  'radial-gradient(120% 120% at 50% 0%, rgba(99,102,241,0.45), transparent 55%), linear-gradient(160deg, #16161A, #0A0A0C)',
-  'radial-gradient(120% 120% at 15% 90%, rgba(228,228,231,0.16), transparent 55%), linear-gradient(160deg, #16161A, #0A0A0C)',
-];
 
 function ProjectCard({
   project,
@@ -64,20 +57,18 @@ function ProjectCard({
       className="group glass relative flex flex-col overflow-hidden rounded-2xl text-left transition-colors duration-300 hover:border-amber-400/60 will-transform"
       aria-label={`Open ${project.title} details`}
     >
-      {/* cover */}
-      <div
-        className="relative h-40 w-full overflow-hidden"
-        style={{ background: COVERS[index % COVERS.length], transformStyle: 'preserve-3d' }}
-      >
-        <span className="absolute left-4 top-4 rounded-full bg-ink-900/40 px-2.5 py-1 font-mono text-[0.65rem] text-mist-100 backdrop-blur">
+      {/* cover — branded promo art */}
+      <div className="relative h-40 w-full overflow-hidden" style={{ transformStyle: 'preserve-3d' }}>
+        <ProjectCover id={project.id} index={index} />
+        <span className="absolute left-4 top-4 rounded-full bg-black/35 px-2.5 py-1 font-mono text-[0.72rem] text-white backdrop-blur-sm ring-1 ring-white/15">
           {project.category}
         </span>
         {project.metric && (
-          <span className="absolute bottom-4 left-4 font-display text-2xl font-semibold text-mist-100/90">
+          <span className="absolute bottom-4 left-4 font-display text-2xl font-semibold text-white [text-shadow:0_2px_12px_rgba(8,12,40,0.55)]">
             {project.metric}
           </span>
         )}
-        <span className="absolute right-4 top-4 font-mono text-xs text-mist-100/50">
+        <span className="absolute right-4 top-4 font-mono text-xs text-white/70">
           {String(index + 1).padStart(2, '0')}
         </span>
         {tilt && (
@@ -99,17 +90,17 @@ function ProjectCard({
         <p className="flex-1 text-sm leading-relaxed text-haze-300">{project.blurb}</p>
         <div className="flex flex-wrap gap-1.5">
           {project.stack.slice(0, 4).map((s) => (
-            <span key={s} className="rounded-full border border-glass-line px-2 py-0.5 font-mono text-[0.65rem] text-haze-300">
+            <span key={s} className="rounded-full border border-glass-line px-2 py-0.5 font-mono text-[0.72rem] text-haze-300">
               {s}
             </span>
           ))}
           {project.stack.length > 4 && (
-            <span className="rounded-full px-2 py-0.5 font-mono text-[0.65rem] text-amber-400">
+            <span className="rounded-full px-2 py-0.5 font-mono text-[0.72rem] text-amber-500">
               +{project.stack.length - 4}
             </span>
           )}
         </div>
-        <span className="mt-1 inline-flex items-center gap-1.5 text-sm font-medium text-amber-400">
+        <span className="mt-1 inline-flex items-center gap-1.5 text-sm font-medium text-amber-500">
           View details <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">→</span>
         </span>
       </div>

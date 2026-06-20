@@ -70,7 +70,7 @@ export function Header() {
                 aria-label="Back to top"
               >
                 <Logo size={40} />
-                <span className="font-display text-[0.98rem] font-semibold tracking-tight text-mist-100">
+                <span className="hidden font-display text-[0.98rem] font-semibold tracking-tight text-mist-100 sm:inline">
                   Eyad&nbsp;Sofian
                 </span>
               </button>
@@ -100,7 +100,7 @@ export function Header() {
                   onClick={toggleTheme}
                   data-cursor="grow"
                   aria-label={theme === 'light' ? 'Switch to dark theme' : 'Switch to light theme'}
-                  className="glass flex h-9 w-9 items-center justify-center rounded-full text-haze-300 transition-colors hover:text-amber-400"
+                  className="glass flex h-10 w-10 items-center justify-center rounded-full text-haze-300 transition-colors hover:text-amber-400"
                 >
                   {theme === 'light' ? <MoonIcon /> : <SunIcon />}
                 </button>
@@ -111,7 +111,7 @@ export function Header() {
                   onClick={toggleLang}
                   data-cursor="grow"
                   aria-label="Toggle language"
-                  className="glass flex h-9 items-center rounded-full px-1 text-xs font-semibold"
+                  className="glass flex h-10 items-center rounded-full px-1 text-xs font-semibold"
                 >
                   <span className={clsx('rounded-full px-2.5 py-1 transition', lang === 'en' ? 'bg-accent-gradient text-white' : 'text-haze-300')}>EN</span>
                   <span className={clsx('rounded-full px-2.5 py-1 transition', lang === 'ar' ? 'bg-accent-gradient text-white' : 'text-haze-300')}>AR</span>

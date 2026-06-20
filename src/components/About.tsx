@@ -46,7 +46,7 @@ export function About() {
       />
       <div className="container-x grid gap-12 lg:grid-cols-[1fr_1.15fr] lg:gap-16">
         {/* Left — bio */}
-        <div className="flex flex-col gap-7">
+        <div className="flex flex-col gap-5">
           <SectionHeading index="01" kicker="About" title={about.heading} />
           <div className="flex flex-col gap-4 text-base leading-relaxed text-haze-300">
             {body.map((para, i) => (

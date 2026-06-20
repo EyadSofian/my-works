@@ -82,6 +82,18 @@ export function Hero({ ready = true }: { ready?: boolean }) {
         />
       </div>
 
+      {/* Readability scrim — veils the top & bottom (where the type sits) using the page
+          colour so the headline stays legible over the orb, while the orb's core glows
+          through the clear mid-band. Theme-aware via --c-ink-900. */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 z-[5]"
+        style={{
+          background:
+            'linear-gradient(180deg, rgb(var(--c-ink-900) / 0.70) 0%, rgb(var(--c-ink-900) / 0.40) 18%, rgb(var(--c-ink-900) / 0.18) 38%, rgb(var(--c-ink-900) / 0.18) 58%, rgb(var(--c-ink-900) / 0.46) 76%, rgb(var(--c-ink-900) / 0.78) 100%)',
+        }}
+      />
+
       {/* DOM overlay — frames the 3D portrait, no pointer events except CTAs */}
       <div
         ref={overlayRef}
@@ -94,8 +106,8 @@ export function Hero({ ready = true }: { ready?: boolean }) {
           </motion.p>
           <motion.h1
             {...reveal(0.18)}
-            className="pointer-events-auto select-none text-center font-display font-bold leading-[0.9] tracking-tightest text-mist-100 transition-colors duration-500 hover:text-gradient"
-            style={{ fontSize: 'clamp(3rem, 9vw, 9rem)' }}
+            className="pointer-events-auto select-none text-center font-display font-bold leading-[0.9] tracking-tightest text-mist-100"
+            style={{ fontSize: 'clamp(3rem, 9vw, 9rem)', textShadow: 'var(--hero-halo)' }}
           >
             {lang === 'ar' ? 'إياد' : 'EYAD'}
           </motion.h1>
@@ -106,14 +118,14 @@ export function Hero({ ready = true }: { ready?: boolean }) {
           <motion.h1
             {...reveal(0.26)}
             aria-hidden
-            className="pointer-events-auto select-none text-center font-display font-bold leading-[0.9] tracking-tightest text-mist-100 transition-colors duration-500 hover:text-gradient"
-            style={{ fontSize: 'clamp(3rem, 9vw, 9rem)' }}
+            className="pointer-events-auto select-none text-center font-display font-bold leading-[0.9] tracking-tightest text-mist-100"
+            style={{ fontSize: 'clamp(3rem, 9vw, 9rem)', textShadow: 'var(--hero-halo)' }}
           >
             {lang === 'ar' ? 'سفيان' : 'SOFIAN'}
           </motion.h1>
           <motion.p
             {...reveal(0.34)}
-            className={`max-w-xl text-center text-base text-haze-300 sm:text-lg ${lang === 'ar' ? 'font-arabic' : ''}`}
+            className={`max-w-xl text-center text-base text-mist-100/85 sm:text-lg ${lang === 'ar' ? 'font-arabic' : ''}`}
           >
             {lang === 'ar' ? hero.subtitleAr : hero.subtitle}
           </motion.p>
@@ -158,7 +170,7 @@ export function Hero({ ready = true }: { ready?: boolean }) {
 
       {/* Bottom-right: scroll cue */}
       <div className="pointer-events-none absolute bottom-6 right-6 z-10 hidden flex-col items-center gap-2 sm:flex">
-        <span className="font-mono text-[0.65rem] uppercase tracking-[0.3em] text-haze-300">{t.scroll}</span>
+        <span className="font-mono text-[0.72rem] uppercase tracking-[0.3em] text-haze-300">{t.scroll}</span>
         <span className="relative flex h-10 w-6 justify-center rounded-full border border-glass-line pt-1.5">
           <motion.span
             className="h-1.5 w-1.5 rounded-full bg-amber-500"

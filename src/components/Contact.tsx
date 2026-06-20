@@ -56,7 +56,7 @@ export function Contact() {
 
       <div className="container-x relative">
         <div className="flex flex-col items-center text-center">
-          <div className="eyebrow mb-5 text-amber-400">Contact</div>
+          <div className="eyebrow mb-5 text-amber-500">Contact</div>
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -88,7 +88,7 @@ export function Contact() {
                 href={c.href}
                 ariaLabel={c.label}
                 strength={0.5}
-                className="glass flex h-12 w-12 items-center justify-center rounded-full text-haze-300 transition-colors duration-300 hover:border-amber-400/70 hover:text-amber-400"
+                className="glass flex h-12 w-12 items-center justify-center rounded-full text-haze-300 transition-colors duration-300 hover:border-amber-400/70 hover:text-amber-500"
               >
                 <ChannelIcon icon={c.icon} />
               </MagneticButton>
@@ -99,7 +99,7 @@ export function Contact() {
         <hr className="hairline mt-16" />
         <div className="flex flex-col items-center justify-between gap-3 py-8 text-sm text-haze-300 sm:flex-row">
           <span>
-            © {year} {lang === 'ar' ? 'إياد سفيان' : 'Eyad Sofian'} — {t.builtWith}
+            © {year} {lang === 'ar' ? 'إياد سفيان' : 'Eyad Sofian'} · {t.rights}
           </span>
           <span className="font-mono text-xs">{hero.location}</span>
         </div>

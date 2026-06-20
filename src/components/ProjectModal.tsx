@@ -39,7 +39,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
           transition={{ duration: 0.3 }}
         >
           <div
-            className="absolute inset-0 bg-ink-900/70 backdrop-blur-md"
+            className="absolute inset-0 bg-black/55 backdrop-blur-md"
             onClick={onClose}
             aria-hidden
           />
@@ -59,12 +59,12 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
               onClick={onClose}
               data-cursor="grow"
               aria-label={t.close}
-              className="absolute right-5 top-5 flex h-9 w-9 items-center justify-center rounded-full border border-glass-line text-mist-100 transition hover:border-amber-400 hover:text-amber-400"
+              className="absolute right-5 top-5 flex h-10 w-10 items-center justify-center rounded-full border border-glass-line text-mist-100 transition hover:border-amber-400 hover:text-amber-500"
             >
               ✕
             </button>
 
-            <div className="eyebrow text-amber-400">{project.category}</div>
+            <div className="eyebrow text-amber-500">{project.category}</div>
             <h3 className="mt-2 font-display text-3xl font-semibold tracking-tight text-mist-100">
               {project.title}
             </h3>
