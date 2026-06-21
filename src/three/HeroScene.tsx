@@ -2,9 +2,8 @@ import { Suspense, useRef } from 'react';
 import * as THREE from 'three';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { EffectComposer, Bloom, Vignette } from '@react-three/postprocessing';
-import { HeroObject } from './HeroObject';
+import { HeroConstellation } from './HeroConstellation';
 import { Particles } from './Particles';
-import { AccentRing } from './AccentRing';
 
 interface PointerRef {
   x: number;
@@ -46,11 +45,10 @@ function SceneContents({ reduced, isMobile, pointer, progress }: Omit<HeroSceneP
       <ambientLight intensity={0.65} />
       <directionalLight position={[4, 5, 3]} intensity={1.5} color="#ffffff" />
       <pointLight position={[-4, -2, 2]} intensity={9} distance={16} color="#3B82F6" />
-      <pointLight position={[3, -3, 4]} intensity={5} distance={16} color="#6366F1" />
+      <pointLight position={[3, -3, 4]} intensity={6} distance={16} color="#A855F7" />
 
       <group ref={rig}>
-        <HeroObject reduced={reduced} pointer={pointer} />
-        <AccentRing reduced={reduced} />
+        <HeroConstellation reduced={reduced} pointer={pointer} />
       </group>
       <Particles count={isMobile ? 1100 : 2400} reduced={reduced} pointer={pointer} />
     </>

@@ -4,6 +4,7 @@ import { HeroScene } from '../three/HeroScene';
 import { MagneticButton } from './MagneticButton';
 import { hero, ticker, assets } from '../data/profile';
 import { useLang } from '../lib/i18n';
+import { useTheme } from '../lib/theme';
 import { usePointerRef, useIsMobile } from '../lib/hooks';
 import { useReducedMotion } from '../lib/useReducedMotion';
 import { ScrollTrigger } from '../lib/gsap';
@@ -13,6 +14,7 @@ const EASE = [0.16, 1, 0.3, 1] as const;
 
 export function Hero({ ready = true }: { ready?: boolean }) {
   const { lang, t } = useLang();
+  const { theme } = useTheme();
   const reduced = useReducedMotion();
   const isMobile = useIsMobile();
   const pointer = usePointerRef();
@@ -69,46 +71,25 @@ export function Hero({ ready = true }: { ready?: boolean }) {
 
   return (
     <section id="top" ref={sectionRef} className="relative h-[100svh] w-full overflow-hidden">
-      {/* Cobalt brand field — a coordinated deep-blue scene for the orb, with a faint
-          solar-amber glow (top-right) so the palette reads "Cobalt × Solar Amber". */}
-      <div
-        aria-hidden
-        className="absolute inset-0"
-        style={{
-          background:
-            'radial-gradient(38% 30% at 84% 14%, rgba(245,158,11,0.14), transparent 70%), radial-gradient(118% 86% at 50% 30%, #21459E 0%, #142C66 46%, #0B1A40 78%, #081130 100%)',
-        }}
-      />
-
       <div className="absolute inset-0">
         <HeroScene
           reduced={reduced}
           isMobile={isMobile}
-          dark
+          dark={theme === 'dark'}
           active={active}
           pointer={pointer}
           progress={progress}
         />
       </div>
 
-      {/* Soft dark veil behind the centred type so the white wordmark stays legible over
-          the bright core of the orb, while the orb's edges keep glowing. */}
+      {/* Soft readability veil in the page colour behind the centred wordmark, so the
+          deep-blue type stays crisp over the orb. Theme-aware via --c-ink-900. */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 z-[5]"
         style={{
           background:
-            'radial-gradient(64% 54% at 50% 47%, rgba(6,12,32,0.52) 0%, rgba(6,12,32,0.18) 50%, transparent 74%)',
-        }}
-      />
-
-      {/* Fade the cobalt hero into the page background below it. */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 z-[6]"
-        style={{
-          background:
-            'linear-gradient(180deg, transparent 66%, rgb(var(--c-ink-900) / 0.85) 90%, rgb(var(--c-ink-900)) 100%)',
+            'radial-gradient(62% 52% at 50% 48%, rgb(var(--c-ink-900) / 0.62) 0%, rgb(var(--c-ink-900) / 0.18) 52%, transparent 75%)',
         }}
       />
 
@@ -117,23 +98,23 @@ export function Hero({ ready = true }: { ready?: boolean }) {
         ref={overlayRef}
         className="pointer-events-none absolute inset-0 z-10 flex flex-col items-center justify-center gap-7 px-6 text-center"
       >
-        <motion.p {...reveal(0.1)} className="eyebrow" style={{ color: '#FBBF24' }}>
+        <motion.p {...reveal(0.1)} className="eyebrow">
           {hero.eyebrow}
         </motion.p>
 
-        {/* EYAD / SOFIAN — stacked tight as one wordmark */}
+        {/* EYAD / SOFIAN — stacked tight as one wordmark, deep brand-blue */}
         <div className="pointer-events-auto">
           <motion.h1
             {...reveal(0.18)}
-            className="select-none font-display font-bold leading-[0.84] tracking-tightest text-white"
-            style={{ fontSize: 'clamp(3rem, 9vw, 9rem)', textShadow: '0 1px 2px rgba(2,6,23,0.5), 0 6px 32px rgba(2,6,23,0.42)' }}
+            className="select-none font-display font-bold leading-[0.84] tracking-tightest"
+            style={{ fontSize: 'clamp(3rem, 9vw, 9rem)', color: 'var(--hero-name)', textShadow: 'var(--hero-halo)' }}
           >
             {lang === 'ar' ? 'إياد' : 'EYAD'}
           </motion.h1>
           <motion.h1
             {...reveal(0.26)}
-            className="select-none font-display font-bold leading-[0.84] tracking-tightest text-white"
-            style={{ fontSize: 'clamp(3rem, 9vw, 9rem)', textShadow: '0 1px 2px rgba(2,6,23,0.5), 0 6px 32px rgba(2,6,23,0.42)' }}
+            className="select-none font-display font-bold leading-[0.84] tracking-tightest"
+            style={{ fontSize: 'clamp(3rem, 9vw, 9rem)', color: 'var(--hero-name)', textShadow: 'var(--hero-halo)' }}
           >
             {lang === 'ar' ? 'سفيان' : 'SOFIAN'}
           </motion.h1>
@@ -141,7 +122,7 @@ export function Hero({ ready = true }: { ready?: boolean }) {
 
         <motion.p
           {...reveal(0.34)}
-          className={`max-w-xl text-base text-slate-300 sm:text-lg ${lang === 'ar' ? 'font-arabic' : ''}`}
+          className={`max-w-xl text-base text-haze-300 sm:text-lg ${lang === 'ar' ? 'font-arabic' : ''}`}
         >
           {lang === 'ar' ? hero.subtitleAr : hero.subtitle}
         </motion.p>
@@ -151,12 +132,7 @@ export function Hero({ ready = true }: { ready?: boolean }) {
             {hero.ctaPrimary}
             <span aria-hidden>↓</span>
           </MagneticButton>
-          <MagneticButton
-            variant="ghost"
-            href={assets.cv}
-            download="Eyad-Sofian-CV.pdf"
-            className="!border-white/25 !bg-white/10 !text-white backdrop-blur-md hover:!border-amber-300/70"
-          >
+          <MagneticButton variant="ghost" href={assets.cv} download="Eyad-Sofian-CV.pdf">
             {hero.ctaSecondary}
             <span aria-hidden>↗</span>
           </MagneticButton>
@@ -165,13 +141,13 @@ export function Hero({ ready = true }: { ready?: boolean }) {
 
       {/* Bottom-left: live ticker */}
       <div className="pointer-events-none absolute bottom-6 left-0 z-10 hidden w-full px-6 sm:block">
-        <div className="flex items-center gap-3 font-mono text-xs text-slate-400">
+        <div className="flex items-center gap-3 font-mono text-xs text-haze-300">
           <span className="relative flex h-2 w-2">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-jade-400 opacity-70" />
             <span className="relative inline-flex h-2 w-2 rounded-full bg-jade-400" />
           </span>
           <span className="text-jade-400">{hero.available}</span>
-          <span className="text-white/30">·</span>
+          <span className="text-glass-line">·</span>
           <span className="h-4 overflow-hidden">
             <AnimatePresence mode="wait">
               <motion.span
@@ -180,7 +156,7 @@ export function Hero({ ready = true }: { ready?: boolean }) {
                 animate={{ y: 0, opacity: 1 }}
                 exit={{ y: reduced ? 0 : -12, opacity: 0 }}
                 transition={{ duration: 0.4, ease: EASE }}
-                className="inline-block text-white"
+                className="inline-block text-mist-100"
               >
                 {ticker[tickI]}
               </motion.span>
@@ -191,11 +167,10 @@ export function Hero({ ready = true }: { ready?: boolean }) {
 
       {/* Bottom-right: scroll cue */}
       <div className="pointer-events-none absolute bottom-6 right-6 z-10 hidden flex-col items-center gap-2 sm:flex">
-        <span className="font-mono text-[0.72rem] uppercase tracking-[0.3em] text-slate-300">{t.scroll}</span>
-        <span className="relative flex h-10 w-6 justify-center rounded-full border border-white/25 pt-1.5">
+        <span className="font-mono text-[0.72rem] uppercase tracking-[0.3em] text-haze-300">{t.scroll}</span>
+        <span className="relative flex h-10 w-6 justify-center rounded-full border border-glass-line pt-1.5">
           <motion.span
-            className="h-1.5 w-1.5 rounded-full"
-            style={{ background: '#FBBF24' }}
+            className="h-1.5 w-1.5 rounded-full bg-amber-500"
             animate={reduced ? {} : { y: [0, 12, 0], opacity: [1, 0.3, 1] }}
             transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut' }}
           />

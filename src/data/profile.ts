@@ -13,9 +13,9 @@ export const hero = {
   nameAr: 'إياد سفيان',
   role: 'Botpress Certified Partner',
   subtitle:
-    'Botpress Certified Partner — Arabic-first Conversational AI & end-to-end Automation for MENA.',
+    'I build Arabic-first AI agents, workflow automation, and fine-tuned LLMs — production systems, end-to-end, for MENA.',
   subtitleAr:
-    'شريك معتمد من Botpress — ذكاء اصطناعي حِواري عربيّ أولاً وأتمتة متكاملة لمنطقة الشرق الأوسط.',
+    'أبني وكلاء ذكاء اصطناعي عربيّ أولاً، وأتمتة متكاملة، ونماذج لغوية مُدرّبة — أنظمة إنتاجية كاملة لمنطقة الشرق الأوسط.',
   ctaPrimary: 'View Work',
   ctaSecondary: 'Download CV',
   location: 'Cairo, Egypt · Remote',
@@ -25,10 +25,11 @@ export const hero = {
 /* ---------------- Live ticker (hero bottom-left) ---------------- */
 export const ticker: string[] = [
   'Botpress Certified Partner',
-  '50,000+ trainees served',
-  '40K+ contacts migrated',
-  '40-node call-QA pipeline',
-  'Arabic-first conversational AI',
+  'AI agents & chatbots',
+  'n8n workflow automation',
+  'LLM fine-tuning · LoRA / QLoRA',
+  'RAG · NLP / NLU',
+  '50,000+ users served',
 ];
 
 /* ---------------- Metrics (About / Impact) ---------------- */
@@ -55,7 +56,7 @@ export const about = {
   heading: 'I build intelligent systems that talk, decide, and automate — in Arabic and English.',
   body: [
     'I’m an AI engineer and automation architect specialising in Arabic-first conversational AI for the MENA market. I design and ship production systems end-to-end: Botpress agents with human-in-the-loop handoff, RAG pipelines, ERP and CRM integrations, and the bridge servers that glue them together.',
-    'My work spans a 40-node call-quality auditing pipeline (Yeastar → Whisper → GPT-4o → Pinecone → Odoo), a production Arabic support agent serving 50,000+ trainees, and a fault-tolerant migration of 40K+ contacts. I care about reliability, latency, and clean handoffs between bots and humans.',
+    'My work spans conversational AI agents (Botpress with human-in-the-loop), large-scale workflow automation in n8n, RAG pipelines, and resilient data migrations — from a production Arabic support agent serving 50,000+ users to automations that cut manual work by ~80%. I care about reliability, latency, and clean handoffs between bots and humans.',
     'I also work hands-on with NLP/NLU and model training: fine-tuning open LLMs for Arabic with LoRA / QLoRA (Unsloth on Google Colab), curating and cleaning instruction datasets, and evaluating models before shipping them into agents like “Majed”.',
   ],
   bodyAr: [
@@ -87,8 +88,8 @@ export const experience: ExperienceItem[] = [
     summary:
       'Own the AI & automation stack for a training company serving tens of thousands of learners.',
     highlights: [
-      'Built a 40-node n8n call-quality auditing pipeline: Yeastar PBX → Whisper (Arabic STT, 8k→16k upsampling fix) → GPT-4o scoring on 50+ criteria → Pinecone RAG → Odoo CRM → HTML email reports.',
-      'Shipped “Fahad” — a production Arabic customer-service agent (Botpress + Chatwoot HITL + full Odoo) across WhatsApp, Messenger & Web, serving 50,000+ trainees.',
+      'Shipped “Fahad” — a production Arabic customer-service agent (Botpress + Chatwoot HITL + full Odoo) across WhatsApp, Messenger & Web, serving 50,000+ users.',
+      'Designed large n8n automation pipelines — including a call-quality auditing flow (telephony → Whisper STT → GPT-4o scoring → Pinecone RAG → Odoo) that auto-generates QA reports.',
       'Built the Engosoft AI Copilot Chatwoot app and grounded RAG knowledge bases (courses, tracks, grouping rules).',
     ],
     tech: ['n8n', 'Botpress', 'Chatwoot', 'GPT-4o', 'Whisper', 'Pinecone', 'Odoo', 'Node.js'],
